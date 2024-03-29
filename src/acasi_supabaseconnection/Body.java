@@ -15,7 +15,6 @@ public class Body {
     
     public Body(Map map){
         JSONObject jo = new JSONObject(map);
-        map.toString();
-        System.out.println(jo);
+        System.out.println(jo.toString());
     }
 }
