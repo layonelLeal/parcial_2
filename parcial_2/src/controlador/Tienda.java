@@ -1,4 +1,5 @@
 package controlador;
+import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import supabase.Filter;
@@ -39,6 +40,15 @@ public class Tienda {
             frutas[i] = new Fruta(verdura.getInt("price"), verdura.getString("name"));
         }
         return frutas;
+    }
+    
+    static  public void saveOrder(String producst, Integer totalPrice){
+        System.out.println(producst + totalPrice);
+        Orden[] newOrden = new Orden[1];
+        newOrden[0] = new Orden(producst, totalPrice);
+        JSONArray body = new JSONArray(newOrden);
+        System.out.println(body.toString());
+        supabase.from("ordenes").insert(body);
     }
     
 }
